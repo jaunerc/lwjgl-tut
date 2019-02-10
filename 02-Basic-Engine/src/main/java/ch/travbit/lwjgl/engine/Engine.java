@@ -29,7 +29,7 @@ public class Engine {
     private void init() throws IOException {
         window.init();
         glProgram.create(VERTEX_RESOURCE, FRAGMENT_RESOURCE);
-        game.init();
+        game.init(glProgram.getProgramId());
     }
 
     public void start() {
@@ -48,6 +48,8 @@ public class Engine {
             glClear(GL_COLOR_BUFFER_BIT);
 
             glUseProgram(glProgram.getProgramId());
+
+            game.render();
 
             glUseProgram(0);
 

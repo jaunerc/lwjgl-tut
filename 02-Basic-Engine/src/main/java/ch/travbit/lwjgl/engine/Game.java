@@ -2,5 +2,7 @@ package ch.travbit.lwjgl.engine;
 
 public interface Game {
 
-    void init();
+    void init(int programId);
+
+    void render();
 }
