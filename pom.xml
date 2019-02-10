@@ -10,8 +10,8 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>hello-world</module>
-        <module>basic-2d</module>
+        <module>00_hello-world</module>
+        <module>01_basic-2d</module>
         <module>02-Basic-Engine</module>
     </modules>
 
