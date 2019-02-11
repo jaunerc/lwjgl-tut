@@ -10,6 +10,9 @@ import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL15C.GL_ARRAY_BUFFER;
 import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
 
+/**
+ * This class represents a collection of buffer information.
+ */
 public class Mesh {
 
     private Attribute positionAtr;
@@ -25,6 +28,11 @@ public class Mesh {
         indicesCount = 0;
     }
 
+    /**
+     * Saves the given vertices and indices to the OpenGL buffers.
+     * @param vertices a list of vertices
+     * @param indices a list of indices
+     */
     public void storeBuffers(float[] vertices, int[] indices) {
         FloatBuffer verticesBuffer = null;
         IntBuffer indicesBuffer = null;
@@ -53,6 +61,9 @@ public class Mesh {
         }
     }
 
+    /**
+     * Renders this mesh. This function binds the buffers and invokes a OpenGL draw command.
+     */
     public void render() {
         // Draw
         glBindBuffer(GL_ARRAY_BUFFER, verticesBufferId);
