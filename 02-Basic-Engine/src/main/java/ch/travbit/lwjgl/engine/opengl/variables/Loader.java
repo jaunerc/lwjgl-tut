@@ -15,12 +15,12 @@ public class Loader {
         this.program = program;
     }
 
-    public Attribute loadAttribute(String name, int size, int datatype) {
+    public Attribute loadAttribute(String name, int datatype, int size) {
         final int id = glGetAttribLocation(program, name);
         if (id == NOT_FOUND) {
             throw new IllegalArgumentException("attribute location for " + name + " not found.");
         }
-        return new Attribute(id, size, datatype);
+        return new Attribute(id, datatype, size);
     }
 
     public Uniform<Matrix3f> loadUniformMatrix3(String name) {

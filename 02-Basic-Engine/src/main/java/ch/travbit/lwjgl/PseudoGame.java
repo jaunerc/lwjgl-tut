@@ -2,6 +2,7 @@ package ch.travbit.lwjgl;
 
 import ch.travbit.lwjgl.engine.Entity;
 import ch.travbit.lwjgl.engine.Game;
+import ch.travbit.lwjgl.engine.opengl.variables.Loader;
 import ch.travbit.lwjgl.engine.opengl.variables.Uniform;
 import ch.travbit.lwjgl.engine.opengl.variables.UniformMatrix3;
 import ch.travbit.lwjgl.geometry.GeometryFactory;
@@ -27,11 +28,9 @@ public class PseudoGame implements Game {
 
     @Override
     public void init(int programId) {
-        int projectionId = glGetUniformLocation(programId, "uProjectionMat");
-        projectionMat = new UniformMatrix3(projectionId);
-
-        int transformId = glGetUniformLocation(programId, "uTransformMat");
-        transformMat = new UniformMatrix3(transformId);
+        Loader loader = new Loader(programId);
+        projectionMat = loader.loadUniformMatrix3("uProjectionMat");
+        transformMat = loader.loadUniformMatrix3("uTransformMat");
 
         GeometryFactory factory = new GeometryFactory(programId);
 
