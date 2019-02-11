@@ -6,7 +6,6 @@ import ch.travbit.lwjgl.engine.opengl.variables.Uniform;
 import ch.travbit.lwjgl.engine.opengl.variables.UniformMatrix3;
 import ch.travbit.lwjgl.geometry.GeometryFactory;
 import org.joml.Matrix3f;
-import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;

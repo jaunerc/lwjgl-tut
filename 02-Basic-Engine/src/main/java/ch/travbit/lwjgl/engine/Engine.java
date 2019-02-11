@@ -2,6 +2,8 @@ package ch.travbit.lwjgl.engine;
 
 import ch.travbit.lwjgl.engine.opengl.GlProgram;
 import ch.travbit.lwjgl.engine.ui.Window;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
@@ -10,6 +12,8 @@ import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL20.glUseProgram;
 
 public class Engine {
+
+    private final static Logger LOGGER = LogManager.getLogger();
 
     private final static String VERTEX_RESOURCE = "VertexShader.vs";
     private final static String FRAGMENT_RESOURCE = "FragmentShader.fs";
@@ -27,6 +31,7 @@ public class Engine {
     }
 
     private void init() throws IOException {
+        LOGGER.info("initialize");
         window.init();
         glProgram.create(VERTEX_RESOURCE, FRAGMENT_RESOURCE);
         game.init(glProgram.getProgramId());
@@ -58,6 +63,6 @@ public class Engine {
     }
 
     public void shutdown() {
-        System.out.println("Shutdown");
+        LOGGER.info("shutdown engine");
     }
 }
