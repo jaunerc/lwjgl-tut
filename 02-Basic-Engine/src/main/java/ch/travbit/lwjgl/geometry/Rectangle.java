@@ -20,12 +20,11 @@ public class Rectangle extends Entity {
     };
 
     public Rectangle(Mesh mesh) {
-        super(mesh);
-        mesh.storeBuffers(VERTICES, INDICES);
+        this(mesh, false);
     }
 
-    @Override
-    public void update() {
-        // no updates at the moment
+    public Rectangle(Mesh mesh, boolean isRotating) {
+        super(mesh, isRotating);
+        mesh.storeBuffers(VERTICES, INDICES);
     }
 }
