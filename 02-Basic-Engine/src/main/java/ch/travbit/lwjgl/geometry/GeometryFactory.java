@@ -32,4 +32,15 @@ public class GeometryFactory {
         Mesh mesh = new Mesh(posAttribute, colorAttribute);
         return new Rectangle(mesh);
     }
+
+    public Entity createGreenRectangle() {
+        float[] greenColors = {
+                0, 1, 0, 1,
+                0, 1, 0, 1,
+                0, 1, 0, 1,
+                0, 1, 0, 1
+        };
+        Mesh mesh = new Mesh(posAttribute, colorAttribute);
+        return new Rectangle(mesh, false, greenColors);
+    }
 }

@@ -38,7 +38,7 @@ public class PseudoGame implements Game {
         rectangleA.setRotating(true);
         rectangleA.setPosition(2, 0, 0);
 
-        Entity rectangleB = factory.createRectangle();
+        Entity rectangleB = factory.createGreenRectangle();
         rectangleB.setRotating(true);
         rectangleB.setPosition(-2, 1, 0);
 

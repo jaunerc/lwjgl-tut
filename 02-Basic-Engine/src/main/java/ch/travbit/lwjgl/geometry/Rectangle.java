@@ -12,7 +12,7 @@ public class Rectangle extends Entity {
             -0.5f, 0.5f,
     };
 
-    private final static float[] COLORS = new float[] {
+    private final static float[] DEFAULT_COLORS = new float[] {
             1, 0, 0, 1,
             1, 0, 0, 1,
             1, 0, 0, 1,
@@ -25,11 +25,11 @@ public class Rectangle extends Entity {
     };
 
     public Rectangle(Mesh mesh) {
-        this(mesh, false);
+        this(mesh, false, DEFAULT_COLORS);
     }
 
-    public Rectangle(Mesh mesh, boolean isRotating) {
+    public Rectangle(Mesh mesh, boolean isRotating, float[] colors) {
         super(mesh, isRotating);
-        mesh.storeBuffers(VERTICES, COLORS, INDICES);
+        mesh.storeBuffers(VERTICES, colors, INDICES);
     }
 }
