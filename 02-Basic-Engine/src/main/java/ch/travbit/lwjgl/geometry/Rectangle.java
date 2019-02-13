@@ -13,10 +13,8 @@ public class Rectangle extends Entity {
     };
 
     private final static int[] INDICES = new int[] {
-            0, 1,
-            1, 2,
-            2, 3,
-            3, 0
+            0, 1, 2,
+            0, 3, 2
     };
 
     public Rectangle(Mesh mesh) {

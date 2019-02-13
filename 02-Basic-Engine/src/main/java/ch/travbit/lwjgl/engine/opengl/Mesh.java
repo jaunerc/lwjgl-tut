@@ -71,7 +71,7 @@ public class Mesh {
         positionAtr.enable(true);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBufferId);
-        glDrawElements(GL_LINES, indicesCount, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 
         // Restore state
         positionAtr.enable(false);
