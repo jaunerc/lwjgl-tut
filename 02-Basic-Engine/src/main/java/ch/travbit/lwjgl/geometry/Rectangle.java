@@ -12,6 +12,13 @@ public class Rectangle extends Entity {
             -0.5f, 0.5f,
     };
 
+    private final static float[] COLORS = new float[] {
+            1, 0, 0, 1,
+            1, 0, 0, 1,
+            1, 0, 0, 1,
+            1, 0, 0, 1
+    };
+
     private final static int[] INDICES = new int[] {
             0, 1, 2,
             0, 3, 2
@@ -23,6 +30,6 @@ public class Rectangle extends Entity {
 
     public Rectangle(Mesh mesh, boolean isRotating) {
         super(mesh, isRotating);
-        mesh.storeBuffers(VERTICES, INDICES);
+        mesh.storeBuffers(VERTICES, COLORS, INDICES);
     }
 }
