@@ -4,7 +4,6 @@ import ch.travbit.lwjgl.engine.Entity;
 import ch.travbit.lwjgl.engine.Game;
 import ch.travbit.lwjgl.engine.opengl.variables.Loader;
 import ch.travbit.lwjgl.engine.opengl.variables.Uniform;
-import ch.travbit.lwjgl.engine.opengl.variables.UniformMatrix3;
 import ch.travbit.lwjgl.geometry.GeometryFactory;
 import org.joml.Matrix3f;
 import org.joml.Vector3f;
@@ -34,7 +33,7 @@ public class PseudoGame implements Game {
 
         GeometryFactory factory = new GeometryFactory(programId);
 
-        Entity rectangleA = factory.createRectangle();
+        Entity rectangleA = factory.createDiffColoredRectangle();
         rectangleA.setRotating(true);
         rectangleA.setPosition(2, 0, 0);
 

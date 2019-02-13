@@ -25,7 +25,7 @@ public class GeometryFactory {
     }
 
     /**
-     * Creates a simple rectangle.
+     * Creates a simple rectangle with default values.
      * @return rectangle object
      */
     public Entity createRectangle() {
@@ -33,6 +33,10 @@ public class GeometryFactory {
         return new Rectangle(mesh);
     }
 
+    /**
+     * Creates a green rectangle.
+     * @return a rectangle object
+     */
     public Entity createGreenRectangle() {
         float[] greenColors = {
                 0, 1, 0, 1,
@@ -40,7 +44,25 @@ public class GeometryFactory {
                 0, 1, 0, 1,
                 0, 1, 0, 1
         };
+        return createColoredRectangle(greenColors);
+    }
+
+    /**
+     * Creates a rectangle with a different color for each vertex.
+     * @return a rectangle object
+     */
+    public Entity createDiffColoredRectangle() {
+        float[] colors = {
+                1, 0, 0, 1,
+                0, 1, 0, 1,
+                0, 0, 1, 1,
+                1, 1, 1, 1
+        };
+        return createColoredRectangle(colors);
+    }
+
+    private Entity createColoredRectangle(float[] colors) {
         Mesh mesh = new Mesh(posAttribute, colorAttribute);
-        return new Rectangle(mesh, false, greenColors);
+        return new Rectangle(mesh, false, colors);
     }
 }
