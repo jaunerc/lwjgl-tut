@@ -65,4 +65,9 @@ public class GeometryFactory {
         Mesh mesh = new Mesh(posAttribute, colorAttribute);
         return new Rectangle(mesh, false, colors);
     }
+
+    public Entity createSolidCircle() {
+        Mesh mesh = new Mesh(posAttribute, colorAttribute);
+        return new Circle(mesh, 32);
+    }
 }

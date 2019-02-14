@@ -15,14 +15,14 @@ import static org.lwjgl.opengl.GL20.glGetUniformLocation;
 
 public class PseudoGame implements Game {
 
-    private List<Entity> rects;
+    private List<Entity> entities;
 
     private Uniform<Matrix3f> transformMat;
     private Uniform<Matrix3f> projectionMat;
 
 
     public PseudoGame() {
-        rects = new ArrayList<>();
+        entities = new ArrayList<>();
     }
 
     @Override
@@ -41,8 +41,11 @@ public class PseudoGame implements Game {
         rectangleB.setRotating(true);
         rectangleB.setPosition(-2, 1, 0);
 
-        rects.add(rectangleA);
-        rects.add(rectangleB);
+        Entity circle = factory.createSolidCircle();
+
+        entities.add(rectangleA);
+        entities.add(rectangleB);
+        entities.add(circle);
     }
 
     @Override
@@ -55,7 +58,7 @@ public class PseudoGame implements Game {
         projection.scaling(0.25f*invAspect);
         projectionMat.bind(projection);
 
-        rects.forEach(rect -> {
+        entities.forEach(rect -> {
             rect.update();
             Matrix3f transform = new Matrix3f();
             Matrix3f translationMat = create2dTranslationMat(rect.getPosition());
