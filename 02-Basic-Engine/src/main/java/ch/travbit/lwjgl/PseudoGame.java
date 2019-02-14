@@ -41,11 +41,19 @@ public class PseudoGame implements Game {
         rectangleB.setRotating(true);
         rectangleB.setPosition(-2, 1, 0);
 
-        Entity circle = factory.createSolidCircle();
+        Entity circleA = factory.createCircle();
+
+        Entity circleB = factory.createBlueCircle();
+        circleB.setPosition(0, 2, 0);
+
+        Entity circleC = factory.createYellowHexagon();
+        circleC.setPosition(0, -2, 0);
 
         entities.add(rectangleA);
         entities.add(rectangleB);
-        entities.add(circle);
+        entities.add(circleA);
+        entities.add(circleB);
+        entities.add(circleC);
     }
 
     @Override

@@ -4,6 +4,7 @@ import ch.travbit.lwjgl.engine.Entity;
 import ch.travbit.lwjgl.engine.opengl.Mesh;
 import ch.travbit.lwjgl.engine.opengl.variables.Attribute;
 import ch.travbit.lwjgl.engine.opengl.variables.Loader;
+import ch.travbit.lwjgl.engine.ui.RgbaColor;
 
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
 
@@ -61,13 +62,41 @@ public class GeometryFactory {
         return createColoredRectangle(colors);
     }
 
+    /**
+     * Creates a rectangle with the given color list.
+     * @param colors a list of colors for each vertex.
+     * @return a rectangle object.
+     */
     private Entity createColoredRectangle(float[] colors) {
         Mesh mesh = new Mesh(posAttribute, colorAttribute);
         return new Rectangle(mesh, false, colors);
     }
 
-    public Entity createSolidCircle() {
+    /**
+     * Creates a circle with the default values. There are enough points to create a smooth circle line.
+     * @return a circle object.
+     */
+    public Entity createCircle() {
         Mesh mesh = new Mesh(posAttribute, colorAttribute);
         return new Circle(mesh, 32);
+    }
+
+    /**
+     * Creates a blue circle.
+     * @return a circle object
+     */
+    public Entity createBlueCircle() {
+        Mesh mesh = new Mesh(posAttribute, colorAttribute);
+        return new Circle(mesh, 32, new RgbaColor(0, 0, 1, 1));
+    }
+
+    /**
+     * Creates a yellow hexagon. This is just a circle with only 6 points.
+     * @return a hexagon
+     */
+    public Entity createYellowHexagon() {
+        Mesh mesh = new Mesh(posAttribute, colorAttribute);
+        return new Circle(mesh, 6, new RgbaColor(1, 1, 0, 1));
+
     }
 }
