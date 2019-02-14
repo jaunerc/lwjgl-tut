@@ -1,5 +1,6 @@
 package ch.travbit.lwjgl.engine.ui;
 
+import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
@@ -67,8 +68,8 @@ public class GLFWWindow implements Window {
 
         glfwShowWindow(handle); // make the window visible
 
-        RgbaColor clearColor = RgbaColor.WHITE;
-        glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+        Vector4f clearColor = RgbaColor.WHITE.asVector();
+        glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
     }
 
     private void enablevSync() {
@@ -83,7 +84,8 @@ public class GLFWWindow implements Window {
 
     @Override
     public void setClearColor(RgbaColor color) {
-        glClearColor(color.r, color.g, color.b, color.a);
+        Vector4f clearColor = color.asVector();
+        glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
     }
 
     @Override

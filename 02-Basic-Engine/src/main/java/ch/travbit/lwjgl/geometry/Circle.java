@@ -2,14 +2,19 @@ package ch.travbit.lwjgl.geometry;
 
 import ch.travbit.lwjgl.engine.Entity;
 import ch.travbit.lwjgl.engine.opengl.Mesh;
+import ch.travbit.lwjgl.engine.ui.RgbaColor;
 
 public class Circle extends Entity {
 
     public Circle(Mesh mesh, int numPoints) {
+        this(mesh, numPoints, RgbaColor.BLACK);
+    }
+
+    public Circle(Mesh mesh, int numPoints, RgbaColor fillColor) {
         super(mesh);
         float[] vertices = calculateVertices(numPoints);
         int[] indices = calculateIndices(numPoints);
-        float[] colors = defineBasicColors(numPoints);
+        float[] colors = defineBasicColors(numPoints, fillColor);
         mesh.storeBuffers(vertices, colors, indices);
     }
 
@@ -45,14 +50,14 @@ public class Circle extends Entity {
         return triangles;
     }
 
-    private float[] defineBasicColors(int numPoints) {
+    private float[] defineBasicColors(int numPoints, RgbaColor fillColor) {
         float[] colors = new float[numPoints * 4 + 4];
 
         for (int i = 0; i < numPoints * 4; i+=4) {
-            colors[i] = 1f;
-            colors[i+1] = 0f;
-            colors[i+2] = 0f;
-            colors[i+3] = 1f;
+            colors[i] = fillColor.getR();
+            colors[i+1] = fillColor.getG();
+            colors[i+2] = fillColor.getB();
+            colors[i+3] = fillColor.getA();
         }
         return colors;
     }
