@@ -1,4 +1,4 @@
-package ch.travbit.lwjgl.geometry;
+package ch.travbit.lwjgl.shapes;
 
 import org.junit.Test;
 

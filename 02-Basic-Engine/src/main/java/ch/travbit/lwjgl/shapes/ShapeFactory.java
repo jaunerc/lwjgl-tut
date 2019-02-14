@@ -1,4 +1,4 @@
-package ch.travbit.lwjgl.geometry;
+package ch.travbit.lwjgl.shapes;
 
 import ch.travbit.lwjgl.engine.Entity;
 import ch.travbit.lwjgl.engine.opengl.Mesh;
@@ -9,9 +9,9 @@ import ch.travbit.lwjgl.engine.ui.RgbaColor;
 import static org.lwjgl.opengl.GL11.GL_FLOAT;
 
 /**
- * This class represents a factory for geometry objects.
+ * This class represents a factory for shapes objects.
  */
-public class GeometryFactory {
+public class ShapeFactory {
 
     private final static String VERTEX_ATTRIB_NAME = "aVertexPosition";
     private final static String COLOR_ATTRIB_NAME = "aVertexColor";
@@ -19,7 +19,7 @@ public class GeometryFactory {
     private Attribute posAttribute;
     private Attribute colorAttribute;
 
-    public GeometryFactory(int programId) {
+    public ShapeFactory(int programId) {
         Loader loader = new Loader(programId);
         posAttribute = loader.loadAttribute(VERTEX_ATTRIB_NAME, GL_FLOAT, 2);
         colorAttribute = loader.loadAttribute(COLOR_ATTRIB_NAME, GL_FLOAT, 4);
